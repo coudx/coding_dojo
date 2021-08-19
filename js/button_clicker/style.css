@@ -1,0 +1,117 @@
+/* reset css */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+
+/* css starts here */
+
+.wrapper {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.btn {
+    border: 2px solid black;
+    box-shadow: black 2px 2px;
+}
+
+
+/* nav bar */
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: silver;
+    padding: 1.8%;
+    align-items: center;
+}
+
+.nav>.btn {
+    background-color: rgb(0, 102, 255);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#dojonary {
+    font-size: 48px;
+    color: black;
+}
+
+#search {
+    height: 24px;
+    font-size: 18px;
+    width: 40%;
+}
+
+.content {
+    display: inline-flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+
+/* ninja content */
+
+.ninja {
+    width: 70%;
+}
+
+
+/* sub ninja content */
+
+.sninja {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.nincol-1 {
+    text-align: center;
+    width: 30%;
+}
+
+.nincol-1>.btn {
+    margin: 10px;
+    background-color: rgb(255, 217, 0);
+    padding: 5px 15px 5px 15px;
+    font-weight: bolder;
+}
+
+.nincol-3 {
+    width: 60%;
+    display: flex;
+    align-self: center;
+}
+
+.nincol-3>p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* add def */
+
+.def {
+    width: 20%;
+    border: 2px solid black;
+    padding: 25px;
+    display: flex;
+    flex-flow: column;
+    height: fit-content;
+}
+
+.def>p {
+    font-size: 20px;
+}
+
+.def>.btn {
+    background-color: green;
+    margin-top: 10px;
+}
