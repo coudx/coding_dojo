@@ -1,0 +1,115 @@
+/* reset CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* css begins here */
+
+body {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+
+/* header  */
+
+.header>p {
+    font-size: 32px;
+}
+
+.header>p:nth-child(1) {
+    background: black;
+    color: white;
+    padding: 0.5%;
+    padding-left: 5%;
+}
+
+.header>p:last-child {
+    text-align: center;
+    margin: 1%;
+}
+
+
+/* wrapper */
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* left-block */
+
+.col-1 {
+    width: 22%;
+    display: felx;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    padding: 3% 0 3% 0;
+}
+
+.col-1>* {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.col-1>img {
+    width: 80px;
+    height: 80px;
+    align-self: center;
+}
+
+.col-1>p {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+/* right-block */
+
+.col-3 {
+    width: 75%;
+    display: flex;
+    flex-flow: column;
+}
+
+.col-3>* {
+    margin-bottom: 3%;
+}
+
+
+/* sub-blocks */
+
+.profile {
+    border: 2px solid black;
+}
+
+.like {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    margin: 2%;
+    align-items: center;
+}
+
+.profile>p:last-child {
+    font-size: 18;
+    font-weight: bold;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+
+/* button css */
+
+button {
+    width: 60%;
+    background: yellow;
+    color: black;
+    border: 1px solid grey;
+    box-shadow: grey 1.5px 1.5px;
+}
