@@ -1,0 +1,210 @@
+* {
+    font-family: 'Indie Flower', cursive;
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    display: flex;
+    width: auto;
+    margin: 1em 12em 0 12em;
+}
+
+.nav_bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    color: white;
+    align-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.user {
+    margin-left: 5em;
+    width: 40em;
+}
+
+.nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+li {
+    margin: 0 3em 0 3em;
+    color: silver;
+    font-size: 20px;
+}
+
+.btn {
+    background-color: rgb(26, 174, 219);
+    color: white;
+    margin: 0.5em;
+    padding: 0 2em 0 2em;
+    max-width: 100%;
+    font-weight: bold;
+    align-self: center;
+}
+
+.container {
+    border: 2px solid silver;
+    margin: 2em;
+    position: relative;
+}
+
+.user-header {
+    background: rgb(26, 174, 219);
+    height: 6em;
+    width: 100%;
+    position: absolute;
+}
+
+#usercard {
+    height: 20em;
+}
+
+#user {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.content {
+    margin-left: 2em;
+    margin-right: 2em;
+    position: absolute;
+    top: 3em;
+    height: auto;
+    margin-top: 15px;
+}
+
+.icon {
+    width: 15px;
+    height: 15px;
+}
+
+#map-icon {
+    height: 18px;
+}
+
+p {
+    font-weight: bold;
+}
+
+a {
+    padding-top: 10px;
+}
+
+.header2 {
+    background-color: rgb(70, 67, 67);
+    color: white;
+    padding-left: 1em;
+    height: 3.5em;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: rgb(70, 67, 67);
+    color: white;
+    height: 2em;
+    padding-left: 2em;
+}
+
+.header>h3 {
+    padding-top: 0.2em;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.line {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    justify-content: space-between;
+}
+
+#education {
+    height: 20em;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+}
+
+.cicon {
+    margin: 5px;
+}
+
+.wrapperL {
+    display: flex;
+}
+
+.wrapperR {
+    display: flex;
+    justify-content: end;
+    float: right;
+}
+
+.conn {
+    width: 32em;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 18em;
+    align-content: center;
+}
+
+.num {
+    background-color: silver;
+    color: rgb(70, 67, 67);
+    border-radius: 50%;
+    padding: 0 10px 0 10px;
+}
+
+#request {
+    height: 13em;
+}
+
+#conns {
+    height: 20em;
+}
+
+.footer {
+    border: 2px solid silver;
+    margin-top: 16.5em;
+}
+
+.wrapperR img {
+    max-width: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
