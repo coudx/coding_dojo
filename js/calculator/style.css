@@ -1,0 +1,13 @@
+.row {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+#display {
+    text-align: right;
+}
+
+#calculator {
+    width: 40%;
+}
