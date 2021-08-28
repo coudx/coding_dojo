@@ -35,3 +35,4 @@ mult = 7
 for x in range(lowNum, highNum):
     if x % mult == 0:
         print(x)
+        
