@@ -66,23 +66,30 @@ class user:
     def __init__(self, name=None):
         self.name = name
         self.account = BankAccount
+        self.saving = None
 
     def make_deposit(self, amount):
         self.account.deposit(amount)
 
     def make_withdrawal(self, amount):
-        self.account.withdrawal(amount)
+        self.account.withdraw(amount)
 
     def display_user_balance(self):
         print("User {}, Balance: ${}".format(self.name, self.account.balance))
 
+    def openSavingAccount(self):
+        self.saving = BankAccount
+
 # requested bonus section
-    def transfer_money(self, other_user, amount):
-        if amount > self.account.balance:
-            self.make_withdrawal(amount)
-            other_user.make_deposit(amount)
-        elif amount < 0 and abs(amount) > other_user.account.balance:
-            other_user.make_withdrawal(amount)
-            self.make_deposit(amount)
+    def transfer_money(self, amount):
+        if self.saving == None:
+            print("You don't have a saving account")
         else:
-            print("insufficient balance")
+            if amount > self.account.balance:
+                self.make_withdrawal(amount)
+                self.saving.deposit(amount)
+            elif amount < 0 and abs(amount) > self.saving.balance:
+                self.saving.withdraw(amount)
+                self.make_deposit(amount)
+            else:
+                print("insufficient balance")
