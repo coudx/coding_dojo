@@ -1,6 +1,5 @@
 def section_sort(arr):
-    for x in range(len(arr)):
-        if x == len(arr) - 1: break
+    for x in range(len(arr) - 1):
         for y in range(x + 1, len(arr)):
             print("Comparing {} and {}".format(arr[x], arr[y]))
             if arr[x] > arr[y]:
