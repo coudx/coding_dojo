@@ -85,19 +85,22 @@ const Bexpected4 = false
  *    page ranges.
  *
  *
- * 1.
- * 2.
- * 3.
- * 4.
- * 5.
- * 6.
- * 7.
+ * 1. check case when empty array
+ * 2. check case when there is only one element in array and check for if it is a number
+ * 3. run iteration
+ * 4. run iteration while its consective page
+ * 5. make i skip the consective pages
+ * 6. check for number and turn false for every element and return false if its not a number
+ * 7. boom finished
  *
  */
 function bookIndex(nums) {
     if (nums.length == 0) {
         return ""
     } else if (nums.length == 1) {
+        if (!Number.isInteger(nums[i])) {
+            return false
+        }
         return nums[0]
     }
     var exp = nums[0]
