@@ -45,7 +45,7 @@ const Aexpected5 = ""
 function join(arr, separator) {
     if (arr.length == 0) {
         return ""
-    } else if (arr.length == 0) {
+    } else if (arr.length == 1) {
         return arr[0]
     }
     joined = arr[0]
