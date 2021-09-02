@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Great Number Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Welcome to the Great Number Game!</h1>
+        <a href="winners">
+            <h4 class="text-center text-capitalize">Hall Of Fame</h4>
+        </a>
+        <h5 class="text-center">I am thinking a number between 1 and 100</h5>
+        <h5 class="text-center">Take a guess!</h5>
+        <div class="d-flex justify-content-center m-3 {{value['display']}}">
+            <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true" id="t">
+                <div class="toast-body {{value['color']}}">
+                    <h5 class="text-center">{{value["string"]}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center ">
+            <form class="row g-2 {{value['guess']}}" action="guess" method="post">
+                <input class="text-center" type="number" name="gnum" id="gnum" value="1">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+            <form class="row g-2 {{value['color']}} {{value['win']}}" action="/" method="post">
+                <h5 class="text-center">{{value["string"]}}</h5>
+                <input class="text-center" type="text" name="name" id="name" placeholder="Your Name">
+                <button class="btn btn-primary" type="submit">Again</button>
+            </form>
+            <form class="row g-2 {{value['color']}} {{value['lose']}}" action="/lose" method="post">
+                <h5 class="text-center">Gamer Over</h5>
+                <button class="btn btn-primary" type="submit">Again</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script>
+        var toast = new bootstrap.Toast(document.getElementById('t'))
+        toast.show();
+    </script>
+</body>
+
+</html>
