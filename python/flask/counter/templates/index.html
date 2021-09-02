@@ -13,14 +13,17 @@
     <div class="container">
         <h1 class="text-center">Counter</h1>
         <div class="d-flex justify-content-center">
-            <input class="text-center p-5 m-5 border-0 " type="text" name="count" id="count" value="{{ct}}" readonly>
+            <p class="text-center p-2 m-2">{{ct}}</p>
+            <p class="text-center p-2 m-2">Real Visit: {{visit}}</p>
         </div>
-        <div class="d-flex justify-content-around">
-            <form action="/" method="post">
-                <button type="submit" class="btn btn-primary">click</button>
-            </form>
-            <a href="destroy_session"><button class="btn btn-danger">Reset</button></a>
-        </div>
+    </div>
+    <div class="d-flex justify-content-around">
+        <form class="form-control-color d-flex justify-content-center" action="/plus" method="post">
+            <input type="number" name="num" id="num" value="1">
+            <button type="submit" class="btn btn-primary">click</button>
+        </form>
+        <a href="destroy_session"><button class="btn btn-danger">Reset</button></a>
+    </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
