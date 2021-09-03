@@ -24,8 +24,8 @@ def process():
     else:
         session["gain"] = 1
     gold = random.randint(int(request.form["lo"]), int(request.form["hi"]))
-    session["gold"] = gold + session.get("gold")
     if session.get("gain"):
+        session["gold"] = gold + session.get("gold")
         if "log" not in session:
             session["log"] = ""
         session["log"] = (
@@ -39,6 +39,7 @@ def process():
             + session.get("log")
         )
     else:
+        session["gold"] = session.get("gold") - gold
         session["log"] = (
             "<p style='color: red;'>Entered a casino and lost "
             + str(gold)
@@ -52,8 +53,7 @@ def process():
 
 @app.route("/reset")
 def reset():
-    session.pop("log")
-    session.pop("gold")
+    session.clear()
     return redirect("/")
 
 
