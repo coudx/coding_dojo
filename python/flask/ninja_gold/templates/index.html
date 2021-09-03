@@ -1,0 +1,85 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <div class="container m-3">
+        <header class="m-2">
+            <p style="display: inline-flex; margin-right: 20px;">Your Gold:</p>
+            <p class="border border-1 text-center" style="display: inline-flex; width: 80px; padding-left: 10px;">{{gold}}</p>
+            <a href="reset"><button class="btn btn-danger">Reset</button></a>
+        </header>
+        <div class="row">
+            <div class="col-3 border border-2" style="padding: 30px 5px;">
+                <form action="/process_money" method="post">
+                    <h3 class="text-center">Farm</h3>
+                    <p class="text-center p-3">(earns 10-20 golds)</p>
+                    <input type="hidden" name="act" value="farm">
+                    <input type="hidden" name="lo" value="10">
+                    <input type="hidden" name="hi" value="20">
+                    <input type="hidden" name="gamble" value="0">
+                    <div class="position-relative">
+                        <button class="position-absolute top-0 start-50 translate-middle" action="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3 border border-2" style="padding: 30px 5px;">
+                <form action="/process_money" method="post">
+                    <h3 class="text-center">Cave</h3>
+                    <p class="text-center p-3">(earns 5-10 golds)</p>
+                    <input type="hidden" name="act" value="cave">
+                    <input type="hidden" name="lo" value="5">
+                    <input type="hidden" name="hi" value="10">
+                    <input type="hidden" name="gamble" value="0">
+                    <div class="position-relative">
+                        <button class="position-absolute top-0 start-50 translate-middle" action="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3 border border-2" style="padding: 30px 5px;">
+                <form action="/process_money" method="post">
+                    <h3 class="text-center">Farm</h3>
+                    <p class="text-center p-3">(earns 2-5 golds)</p>
+                    <input type="hidden" name="act" value="house">
+                    <input type="hidden" name="lo" value="2">
+                    <input type="hidden" name="hi" value="5">
+                    <input type="hidden" name="gamble" value="0">
+                    <div class="position-relative">
+                        <button class="position-absolute top-0 start-50 translate-middle" action="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3 border border-2" style="padding: 30px 5px;">
+                <form action="/process_money" method="post">
+                    <h3 class="text-center">Farm</h3>
+                    <p class="text-center p-3">(earns 0-50 golds)</p>
+                    <input type="hidden" name="act" value="casino">
+                    <input type="hidden" name="lo" value="0">
+                    <input type="hidden" name="hi" value="50">
+                    <input type="hidden" name="gamble" value="1">
+                    <div class="position-relative">
+                        <button class="position-absolute top-0 start-50 translate-middle" action="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row m-2">
+            <p>Activities:</p>
+            <div class="border border-2 overflow-auto" style="height: 180px;">
+                {{log | safe}}
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>
