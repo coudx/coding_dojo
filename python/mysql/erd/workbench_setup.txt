@@ -1,0 +1,21 @@
+CREATE SCHEMA IF NOT EXISTS `users` DEFAULT CHARACTER SET utf8 ;
+USE `users` ;
+
+-- -----------------------------------------------------
+-- Table `users`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `users`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `email` VARCHAR(255) NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`));
+  
+insert into users (id, created_at)
+values (1, now());
+
+update users set first_name = 'cloud', last_name= 'xu' where id=1;
+
+delete from users where id =1
