@@ -1,3 +1,4 @@
+
 insert into dojo (name, created_at)
 value ('coding', now());
 

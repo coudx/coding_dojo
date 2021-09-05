@@ -1,0 +1,64 @@
+SET SQL_SAFE_UPDATES = 0;
+
+-- reset table author
+delete from author;
+alter table author auto_increment=1;
+-- Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+insert into author (first_name,last_name,created_at) values ('Jane', 'Austen', now());
+insert into author (first_name,last_name,created_at) values ('Emily', 'Dickinson', now());
+insert into author (first_name,last_name,created_at) values ('Fyodor', 'Dostoevsky', now());
+insert into author (first_name,last_name,created_at) values ('William', 'Shakespeare', now());
+insert into author (first_name,last_name,created_at) values ('Lau', 'Tzu', now());
+
+-- reset table book
+delete from book;
+alter table book auto_increment=1;
+-- Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby
+insert into book (title, created_at) values ('C Sharp', now());
+insert into book (title, created_at) values ('Java', now());
+insert into book (title, created_at) values ('Python', now());
+insert into book (title, created_at) values ('PHP', now());
+insert into book (title, created_at) values ('Ruby', now());
+
+-- Query: Change the name of the C Sharp book to C#
+update book set title='C#' where title like 'C%';
+-- Query: Change the first name of the 4th author to Bill
+update author set first_name='Bill' where id = 4;
+
+-- reset table favorite
+delete from favorite;
+alter table favorite auto_increment=1;
+-- Query: Have the first author favorite the first 2 books
+insert into favorite (author_id,book_id,created_at) values (1,1,now());
+insert into favorite (author_id,book_id,created_at) values (1,2,now());
+-- Query: Have the second author favorite the first 3 books
+insert into favorite (author_id,book_id,created_at) values (2,1,now());
+insert into favorite (author_id,book_id,created_at) values (2,2,now());
+insert into favorite (author_id,book_id,created_at) values (2,3,now());
+-- Query: Have the third author favorite the first 4 books
+insert into favorite (author_id,book_id,created_at) values (3,1,now());
+insert into favorite (author_id,book_id,created_at) values (3,2,now());
+insert into favorite (author_id,book_id,created_at) values (3,3,now());
+insert into favorite (author_id,book_id,created_at) values (3,4,now());
+-- Query: Have the fourth author favorite all the books
+insert into favorite (author_id,book_id,created_at) values (4,1,now());
+insert into favorite (author_id,book_id,created_at) values (4,2,now());
+insert into favorite (author_id,book_id,created_at) values (4,3,now());
+insert into favorite (author_id,book_id,created_at) values (4,4,now());
+insert into favorite (author_id,book_id,created_at) values (4,5,now());
+
+-- Query: Retrieve all the authors who favorited the 3rd book
+select concat_ws(' ',author.first_name, author.last_name) as author_name
+from favorite join author on author.id = favorite.author_id where favorite.book_id=3;
+
+-- Query: Remove the first author of the 3rd book's favorites
+delete from favorite where book_id=3 limit 1;
+
+-- Query: Add the 5th author as an other who favorited the 2nd book
+insert favorite (author_id, book_id, created_at) values (5,2,now());
+
+-- Find all the books that the 3rd author favorited
+select book.title from favorite join book on book.id = favorite.book_id where favorite.author_id=3;
+
+-- Query: Find all the authors that favorited to the 5th book
+select concat_ws(' ', author.first_name, author.last_name) as author_name from favorite join author on author.id = favorite.author_id where favorite.book_id=5;
