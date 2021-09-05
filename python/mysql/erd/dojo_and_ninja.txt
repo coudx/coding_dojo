@@ -1,0 +1,38 @@
+insert into dojo (name, created_at)
+value ('coding', now());
+
+insert into dojo (name, created_at) value ('python', now());
+insert into dojo (name, created_at) value ('css', now());
+
+delete from dojo;
+
+insert into dojo (name, created_at) value ('javascript', now());
+insert into dojo (name, created_at) value ('python', now());
+insert into dojo (name, created_at) value ('css', now());
+
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('john', 'smith', '19', now(), 1);
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Apple', 'Deed', '27', now(), 1);
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Alice', 'Wonderman', '22', now(), 1);
+
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Kobe', 'Bryan', '24', now(), 2);
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Wolf', 'Amenda', '27', now(), 2);
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Teby', 'Alison', '34', now(), 2);
+
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Curde', 'Syney', '19', now(), 3);
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Tate', 'Desy', '21', now(), 3);
+insert into ninja (first_name, last_name, age, created_at, dojo_id)
+value ('Tebla', 'Wico', '22', now(), 3);
+
+select * from ninja where dojo_id = 1;
+select * from ninja where dojo_id = 3;
+select dojo.name from ninja
+join dojo on dojo.id = ninja.dojo_id
+where ninja.id = 9;
