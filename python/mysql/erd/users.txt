@@ -1,0 +1,27 @@
+use users;
+select * from users;
+insert into users (first_name, last_name, email, created_at)
+values ('john', 'smith', 'johnsmith@email.com', now());
+
+insert into users (first_name, last_name, email, created_at)
+values ('cloud', 'xu', 'cloudxu@gmail.com', now());
+
+insert into users (first_name, last_name, email, created_at)
+values ('foo', 'bar', 'foo_bar@email.com', now());
+
+select * from users;
+select * from users where email='johnsmith@email.com';
+
+select * from users
+where id = 3;
+
+update users set last_name = 'Pancakes' 
+where id = 3;
+
+delete from users where id = 2;
+
+select * from users 
+order by first_name ASC;
+
+select * from users 
+order by first_name DESC;
