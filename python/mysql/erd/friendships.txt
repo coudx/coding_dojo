@@ -1,0 +1,58 @@
+SET SQL_SAFE_UPDATES = 0;
+-- reset user table
+delete from user;
+alter table user auto_increment=1;
+-- Query: Create 6 new users
+insert into user (first_name, last_name, created_at) values ('Amy', 'Giver', now());
+insert into user (first_name, last_name, created_at) values ('Eli', 'Byers', now());
+insert into user (first_name, last_name, created_at) values ('Big', 'Bird', now());
+insert into user (first_name, last_name, created_at) values ('Kermit', 'The Frog', now());
+insert into user (first_name, last_name, created_at) values ('Marky', 'Mark', now());
+insert into user (first_name, last_name, created_at) values ('John', 'Smith', now());
+
+-- reset friendship table
+delete from friendship;
+-- Query: Have user 1 be friends with user 2, 4 and 6
+insert into friendship (user_id, friend_id, created_at) values (1,2,now());
+insert into friendship (user_id, friend_id, created_at) values (1,4,now());
+insert into friendship (user_id, friend_id, created_at) values (1,6,now());
+-- Query: Have user 2 be friends with user 1, 3 and 5
+insert into friendship (user_id, friend_id, created_at) values (2,1,now());
+insert into friendship (user_id, friend_id, created_at) values (2,3,now());
+insert into friendship (user_id, friend_id, created_at) values (2,5,now());
+-- Query: Have user 3 be friends with user 2 and 5
+insert into friendship (user_id, friend_id, created_at) values (3,2,now());
+insert into friendship (user_id, friend_id, created_at) values (3,5,now());
+-- Query: Have user 4 be friends with user 3
+insert into friendship (user_id, friend_id, created_at) values (4,3,now());
+-- Query: Have user 5 be friends with user 1 and 6
+insert into friendship (user_id, friend_id, created_at) values (5,1,now());
+insert into friendship (user_id, friend_id, created_at) values (5,6,now());
+-- Query: Have user 6 be friends with user 2 and 3
+insert into friendship (user_id, friend_id, created_at) values (6,2,now());
+insert into friendship (user_id, friend_id, created_at) values (6,3,now());
+
+-- Query: Display the relationships create as shown in the above image
+select user.first_name, user.last_name, friend.first_name as friend_first_name, friend.last_name as friend_last_name from user 
+join friendship on user.id = friendship.user_id
+left join user as friend on friend.id = friendship.friend_id;
+
+-- NINJA Query: Return all users who are friends with the first user, make sure their names are displayed in results.
+select friend.first_name as friend_first_name, friend.last_name as friend_last_name from user 
+join friendship on user.id = friendship.user_id
+left join user as friend on friend.id = friendship.friend_id
+where friendship.user_id=1;
+
+-- NINJA Query: Return the count of all friendships
+select count(*) from friendship;
+
+-- NINJA Query: Find out who has the most friends and return the count of their friends.
+select concat_ws(' ', user.first_name, user.last_name) as user_name , friend.id from user 
+join friendship on user.id = friendship.user_id
+left join user as friend on friend.id = friendship.friend_id
+group by user_name order by friend.id desc limit 1;
+
+-- NINJA Query: Return the friends of the third user in alphabetical order
+select friend.first_name as friend_first_name, friend.last_name as friend_last_name from friendship
+join user as friend on friend.id = friendship.friend_id
+where friendship.user_id = 3 order by friend_first_name asc;
