@@ -1,0 +1,24 @@
+TypeError
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a list.
+
+Traceback (most recent call last)
+File "C:\Users\xuanl\AppData\Local\Programs\Python\Python39\Lib\site-packages\flask\app.py", line 2088, in __call__
+return self.wsgi_app(environ, start_response)
+File "C:\Users\xuanl\AppData\Local\Programs\Python\Python39\Lib\site-packages\flask\app.py", line 2073, in wsgi_app
+response = self.handle_exception(e)
+File "C:\Users\xuanl\AppData\Local\Programs\Python\Python39\Lib\site-packages\flask\app.py", line 2070, in wsgi_app
+response = self.full_dispatch_request()
+File "C:\Users\xuanl\AppData\Local\Programs\Python\Python39\Lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+return self.finalize_request(rv)
+File "C:\Users\xuanl\AppData\Local\Programs\Python\Python39\Lib\site-packages\flask\app.py", line 1535, in finalize_request
+response = self.make_response(rv)
+File "C:\Users\xuanl\AppData\Local\Programs\Python\Python39\Lib\site-packages\flask\app.py", line 1727, in make_response
+raise TypeError(
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a list.
+The debugger caught an exception in your WSGI application. You can now look at the traceback which led to the error.
+To switch between the interactive traceback and the plaintext one, you can click on the "Traceback" headline. From the text traceback you can also create a paste of it. For code execution mouse-over the frame you want to debug and click on the console icon on the right side.
+
+You can execute arbitrary Python code in the stack frames and there are some extra helpers available for introspection:
+
+dump() shows all variables in the frame
+dump(obj) dumps all that's known about the object
