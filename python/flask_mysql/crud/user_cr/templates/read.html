@@ -19,6 +19,7 @@
                     <th scope="col">Full Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Created At</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,11 @@
                     <td>{{student["name"]}}</td>
                     <td>{{student["email"]}}</td>
                     <td>{{student["created_at"]}}</td>
+                    <td>
+                        <a href="users/{{student['id']}}">View</a>
+                        <a href="users/{{student['id']}}/edit">Edit</a>
+                        <a href="users/{{student['id']}}/delete">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

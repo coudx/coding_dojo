@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Read</title>
+</head>
+
+<body>
+    <div class="container m-5 p-5">
+        <div class="d-felx justify-content-between">
+            <h1 style="display: inline-block;">User {{data["id"]}}</h1>
+            <a href=".." style="float:right;">Home</a>
+        </div>
+        <div class="border border-1 mb-4">
+            <p>Full Name: {{data["name"]}}</p>
+            <p>Email: {{data["email"]}}</p>
+            <p>Created On: {{data["created_at"]}}</p>
+            <p>Last Updated On: {{data["updated_at"]}}</p>
+        </div>
+        <a href="{{data['id']}}/edit" style="padding-right: 10px;">Edit</a>
+        <a href="{{data['id']}}/delete" style="border-left: 2px black solid; padding-left: 10px;">Delete</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>
