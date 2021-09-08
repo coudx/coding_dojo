@@ -74,7 +74,7 @@ function stringDedupe(str) {
 
 // ****************************************************************************************
 
-console.log(stringDedupe(str3))
+console.log(stringDedupe(str1))
 
 /*
       Given a string containing space separated words
