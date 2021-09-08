@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Result</title>
+</head>
+
+<body>
+    <div class="m-5 p-3 container border border-1">
+        <h3><u>Submitted Info</u></h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">Name:</div>
+                <div class="col">{{data["first_name"]}} {{data["last_name"]}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">Dojo Locatoin:</div>
+                <div class="col">{{data["loc"]}}</div>
+            </div>
+            <div class="row">
+                <div class="col">Favorite Language:</div>
+                <div class="col">{{data["lang"]}}</div>
+            </div>
+            <div class="row">
+                <p>Comments:</p>
+                <p>{{data["comment"]}}</p>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/"><button class="btn btn-primary" type="button">Go
+                        back</button></a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>
