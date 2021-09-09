@@ -8,6 +8,7 @@ bcrypt = Bcrypt(app)
 
 @app.route("/")
 def index():
+    session.clear()
     return render_template("index.html")
 
 
