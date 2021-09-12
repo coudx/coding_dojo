@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Edit Recipe</title>
+</head>
+
+<body>
+    <div class="container pt-3">
+        <header class="d-flex justify-content-between border-dark pb-3
+                border-bottom-0">
+            <div style="display: inline-block;">
+                <h1 class="m-2" style="display: inline-flex;">Welcome</h1>
+                <h3 class="m-2" style="display: inline-flex;">{{data['user']['first_name']}}</h3>
+            </div>
+            <div style="display: inline-block;">
+                <a class="pr-3 m-2" href="../dashboard">Dashboard</a>
+                <a class="pl-3 m-2" href="./dashboard/logout">Logout</a>
+            </div>
+        </header>
+        <div class="container">
+            <form action="" method="post" class="form-control">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" value="{{data['recipe']['name']}}"> {% for message in get_flashed_messages(category_filter=["name"]) %}
+                            <div class="alert alert-danger" role="alert">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="des" class="form-label">Description</label>
+                            <textarea class="form-control" name="des" id="des" cols="30" rows="2">{{data['recipe']['des']}}</textarea> {% for message in get_flashed_messages(category_filter=["des"]) %}
+                            <div class="alert alert-danger" role="alert">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="ins" class="form-label">Instruction</label>
+                            <textarea class="form-control" name="ins" id="ins" cols="30" rows="10">{{data['recipe']['ins']}}</textarea> {% for message in get_flashed_messages(category_filter=["ins"]) %}
+                            <div class="alert alert-danger" role="alert">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                        <button class="btn btn-primary mb-3" type="submit">Save</button>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="created_at" class="form-label">Date
+                                    Made</label>
+                            <input type="date" class="form-control" name="created_at" id="created_at" value="{{data['recipe']['created_at']}}">
+                        </div>
+                        <p>Under 30 Minutes?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="is_thirty" value="1" id="yes" checked>
+                            <label class="form-check-label" for="yes">
+                                    Yes
+                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="is_thirty" value="0" id="no">
+                            <label class="form-check-label" for="no">
+                                    No
+                                </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

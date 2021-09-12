@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container pt-3">
+        <header class="d-flex justify-content-between border-dark pb-3
+                border-bottom-0">
+            <div style="display: inline-block;">
+                <h1 class="m-2" style="display: inline-flex;">Welcome</h1>
+                <h3 class="m-2" style="display: inline-flex;">{{data['user']['first_name']}}</h3>
+            </div>
+            <div style="display: inline-block;">
+                <a class="pr-3 m-2" href="dashboard/addrecipe">Create</a>
+                <a class="pl-3 m-2" href="dashboard/logout">Logout</a>
+            </div>
+        </header>
+        <div class="container">
+            <h6>These are the recipes</h6>
+            <table class="table table-strip mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</td>
+                            <th scope="col">Under 30 Minutes?</td>
+                                <th scope="col">Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in data["recipe"] %}
+                    <tr>
+                        <td>{{el["name"]}}</td>
+                        {% if el["is_thirty"] %}
+                        <td>Yes</td>
+                        <td>
+                            <a class="p-2" href="dashboard/recipe/{{el['id']}}">View</a>
+                            <a class="p-2" href="dashboard/recipe/{{el['id']}}/edit">Edit</a>
+                            <a class="p-2" href="dashboard/recipe/{{el['id']}}/delete">Delete</a>
+                        </td>
+                        {% else %}
+                        <td>No</td>
+                        <td>
+                            <a class="p-2" href="dashboard/recipe/{{el['id']}}">View</a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
