@@ -52,7 +52,7 @@ class Recipe:
         query = "select user_id from recipe where id = %(id)s;"
         result = connectToMySQL(database).query_db(query, data)
         if result:
-            return data["user_id"] == result["user_id"]
+            return data["user_id"] == result[0]["user_id"]
         return False
 
     @staticmethod
