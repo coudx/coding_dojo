@@ -29,6 +29,10 @@ public class AlfredQuotes {
         }
     }
 
+    public String yell() {
+        return "Awwwwwwwwwww";
+    }
+
     // NINJA BONUS
     // See the specs to overload the guessGreeting method
     // SENSEI BONUS
