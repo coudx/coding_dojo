@@ -1,3 +1,7 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "java.project.sourcePaths": [
+        "java\\java_fundations\\cafe_java",
+        "java\\java_fundations\\first_java_program"
+    ]
 }
