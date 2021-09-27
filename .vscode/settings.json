@@ -3,6 +3,7 @@
     "java.project.sourcePaths": [
         "java/java_fundations/first_java_program",
         "java/java_fundations/cafe_java",
-        "java/java_fundations/alfred_bot"
+        "java/java_fundations/alfred_bot",
+        "java/java_fundations/cafe_business_logic"
     ]
 }
