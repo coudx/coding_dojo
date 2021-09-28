@@ -2,12 +2,13 @@
     "python.formatting.provider": "black",
     "java.project.sourcePaths": [
         "java/oop/orders_and_items",
+        "java/oop/Barista_challenge",
         "java/java_fundations/puzzling",
         "java/java_fundations/map_of_the_hashmatique",
         "java/java_fundations/first_java_program",
         "java/java_fundations/cafe_java",
         "java/java_fundations/cafe_business_logic",
         "java/java_fundations/alfred_bot",
-        "java/oop/Barista_challenge"
+        "java/oop/Coffeedore_64"
     ]
 }
