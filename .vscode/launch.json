@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestOrders",
+            "request": "launch",
+            "mainClass": "TestOrders",
+            "projectName": "coding_dojo_c78729e2"
+        },
+        {
+            "type": "java",
             "name": "Launch Hash",
             "request": "launch",
             "mainClass": "Hash",
