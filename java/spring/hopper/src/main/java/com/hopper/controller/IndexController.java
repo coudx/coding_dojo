@@ -22,7 +22,7 @@ public class IndexController {
         model.addAttribute("price", price);
         model.addAttribute("description", description);
         model.addAttribute("vendor", vendor);
-        return "index.jsp";
+        return "index";
     }
     //...
 
