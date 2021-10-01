@@ -7,9 +7,71 @@ class Node {
     }
 }
 
+// SLL
+// - add (to head... append, prepend, tail)
+// - remove (from head, by value... tail)
+// - read (print all, count)
+// - search (contains)
+// - isEmpty
+
 class SLL {
     constructor() {
         this.head = null
+        this.length = 0
+    }
+
+    // if the linked list has a second to last value, print it
+    // return nothing
+    // input: head -> (1) -> (5) -> (11) -> (7) -> (9) ->
+    // print: 7
+    printSecondToLastValue() {
+        if (size() > 2) {
+            let runner = this.head
+            while (runner.next.next) {
+                runner = runner.next
+            }
+            console.info(runner.data)
+        }
+    }
+
+    // bonus: print nth to last
+    // if the link list has a nth to last value, print it
+    // return nothing
+    // input: head -> (1) -> (5) -> (11) -> (7) -> (9) -> (4) -> (19) -> (30) ->
+    //        n = 4
+    // print: 9
+    // hint - use 2 runners
+    printNthToLast(n) {
+        if (size() > n) {
+            let runner = this.head
+            for (var i = 0; i < size() - n; i++) {
+                runner = runner.next
+            }
+            console.info(runner.data)
+        }
+    }
+
+    // reverse linked list in place
+    // ** you may not swap values between nodes **
+    // input:  head -> (1) -> (2) -> (3) ->
+    // output: head -> (3) -> (2) -> (1) ->
+    reverse() {
+        let arr = []
+        let runner = this.head
+        while (runner) {
+            arr.push(runner)
+            runner = runner.next
+        }
+        // console.info(arr)
+        for (var i = arr.length - 1; i > 0; i--) {
+            // console.info(arr[i])
+            // console.info(arr[i].next)
+            // console.info(arr[i - 1])
+            arr[i].next = arr[i - 1]
+        }
+        arr[0].next = null
+        this.head = arr[arr.length - 1]
+            // console.info(arr)
     }
 
     // console log (print) the data of every node in the current list
@@ -46,7 +108,8 @@ class SLL {
         var removed = this.head // save the head in a temp variable
         this.head = this.head.next // move the head
         removed.next = null // make removed no longer reference the list
-        return removed
+        this.length--
+            return removed
     }
 
     // return true or false if this.head is null
@@ -58,6 +121,7 @@ class SLL {
     addToFront(node) {
         node.next = this.head // set the new node's next to the head
         this.head = node // move the head to the new node
+        this.length++
     }
 
     // when a pointer is to the LEFT of an equal sign, we are CHANGING it
@@ -69,6 +133,7 @@ class SLL {
         var newNode = new Node(data) // create a new node with the data
         newNode.next = this.head // set the new node's next to the head
         this.head = newNode // move the head to the new node
+        this.length++
     }
 
     // if data is contained within the current list, delete it.
@@ -77,37 +142,38 @@ class SLL {
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-
-    // data is the value we want to delete
     delete(data) {
-            if (this.isEmpty()) return null
-            let runner = this.head
-            let runner2 = runner.next
-            while (runner2.next != null) {
-                if (runner2.data == data) {
-                    runner.next = runner2.next
-                    break
-                }
-                runner = runner2
-                runner2 = runner2.next
-            }
+        // create a runner
+        let runner = this.head
+            // check if head is empty
+        if (!runner) {
+            return
         }
-        // (11)   -->  (20)  -->    (30)  --> null
-        //runner  --------------->
-        //           runner2
-        //data = 20
+        // check if head is target
+        if (runner.data == data) {
+            this.removeFromFront()
+            return
+        }
+
+        // while next exists
+        while (runner.next) {
+            // check if runner next is data
+            if (runner.next.data == data) {
+                // remove it and return
+                runner.next = runner.next.next
+                this.length--
+                    return
+            }
+            // otherwise traverse
+            runner = runner.next
+        }
+    }
 
     // return the size of the current linked list
     // BONUS: how might you do this without linearly traversing the list? O(1)
     // you may have to change other methods within this class...
     size() {
-        let size = 0
-        let runner = this.head
-        while (runner) {
-            size++
-            runner = runner.next
-        }
-        return size
+        return this.length
     }
 }
 
@@ -123,8 +189,6 @@ myList.addToFront(myNode)
 myList.addToFront(new Node(22))
 myList.addToFront(new Node(33))
 myList.addToFront(new Node(44))
-console.info(myList.size())
 myList.read()
-myList.delete(22)
-console.info(myList.size())
+myList.reverse()
 myList.read()

@@ -77,25 +77,19 @@ class SLL {
     // consider the edge case if you have to delete the head node
     // consider the edge case your list is empty
     // consider the edge case that your list does not contain the data
-
-    // data is the value we want to delete
     delete(data) {
-            if (this.isEmpty()) return null
-            let runner = this.head
-            let runner2 = runner.next
-            while (runner2.next != null) {
-                if (runner2.data == data) {
-                    runner.next = runner2.next
-                    break
-                }
-                runner = runner2
-                runner2 = runner2.next
+        if (this.isEmpty()) return null
+        let runner = this.head
+        let runner2 = runner.next
+        while (runner2) {
+            if (runner2.data == data) {
+                runner.next = runner2.next
+                break
             }
+            runner = runner2
+            runner2 = runner2.next
         }
-        // (11)   -->  (20)  -->    (30)  --> null
-        //runner  --------------->
-        //           runner2
-        //data = 20
+    }
 
     // return the size of the current linked list
     // BONUS: how might you do this without linearly traversing the list? O(1)
