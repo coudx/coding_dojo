@@ -18,7 +18,10 @@ public class MainController {
     }
 
     @RequestMapping("/counter")
-    public String counter() {
+    public String counter(HttpSession session) {
+        if (session.getAttribute("n") == null) {
+            session.setAttribute("n", 0);
+        }
         return "counter";
     }
 }
