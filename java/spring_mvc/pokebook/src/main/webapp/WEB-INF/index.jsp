@@ -19,6 +19,7 @@
                     <th scope="col">Expense</th>
                     <th scope="col">Vendor</th>
                     <th scope="col">Amount</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,13 +28,14 @@
                         <td><c:out value="${pokebook.getExpense()}"/></td>
                         <td><c:out value="${pokebook.getVendor()}"/></td>
                         <td><c:out value="${pokebook.getAmount()}"/></td>
+                        <td><a href="/expense/edit/<c:out value="${pokebook.getId()}"/>">edit</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <div class="container m-3">
             <h1 class="mb-3 text-primary">Track an expense:</h1>
-            <form:form action="/expense/add" method="post" modelAttribute="newPoke">
+            <form:form action="/expense/add" method="post" modelAttribute="poke">
                 <div class="mb-3 row form-group">
                     <form:errors path="expense" class="text-danger" />
                     <label class="col-sm-2 col-form-label">Expense Name:</label>

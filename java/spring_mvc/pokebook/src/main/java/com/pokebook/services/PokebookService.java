@@ -29,6 +29,10 @@ public class PokebookService {
         Optional<Pokebook> optionalBook = bookRepository.findById(id);
         return optionalBook.orElse(null);
     }
+
+    public Pokebook updateBook(Pokebook poke) {
+        return bookRepository.save(poke);
+    }
 }
 
 

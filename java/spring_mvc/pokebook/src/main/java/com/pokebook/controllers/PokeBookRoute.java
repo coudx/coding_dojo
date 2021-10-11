@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,14 +19,28 @@ public class PokeBookRoute {
     @GetMapping("/expense")
     public String index(Model model){
         model.addAttribute("pokebooks", service.allBooks());
-        model.addAttribute("newPoke", new Pokebook());
+        model.addAttribute("poke", new Pokebook());
         return "index";
     }
 
     @PostMapping("/expense/add")
-    public String add(@Valid @ModelAttribute("newPoke") Pokebook newPokebook, BindingResult result){
+    public String add(@Valid @ModelAttribute("poke") Pokebook newPokebook, BindingResult result){
         if (!result.hasErrors()) {
             service.createBook(newPokebook);
+        }
+        return "redirect:/expense";
+    }
+
+    @GetMapping("/expense/edit/{id}")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("poke", service.findBook(id));
+        return "edit";
+    }
+
+    @PutMapping("/expense/edit/{id}")
+    public String update(@Valid @ModelAttribute("poke") Pokebook poke, BindingResult result){
+        if (!result.hasErrors()){
+            service.updateBook(poke);
         }
         return "redirect:/expense";
     }
