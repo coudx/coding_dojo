@@ -25,10 +25,18 @@
             <tbody>
                 <c:forEach var="pokebook" items="${pokebooks}">
                     <tr>
-                        <td><c:out value="${pokebook.getExpense()}"/></td>
+                        <td><a href="/expense/<c:out value="${pokebook.getId()}"/>"><c:out value="${pokebook.getExpense()}"/></a></td>
                         <td><c:out value="${pokebook.getVendor()}"/></td>
                         <td><c:out value="${pokebook.getAmount()}"/></td>
-                        <td><a href="/expense/edit/<c:out value="${pokebook.getId()}"/>">edit</a></td>
+                        <td>
+                            <div style="display:flex;">
+                                <a class="m-2" href="/expense/edit/<c:out value="${pokebook.getId()}"/>">edit</a>
+                                <form action="/expense/delete/${pokebook.getId()}" method="post">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>

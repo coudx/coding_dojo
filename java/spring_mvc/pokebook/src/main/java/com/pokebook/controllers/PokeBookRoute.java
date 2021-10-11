@@ -45,4 +45,15 @@ public class PokeBookRoute {
         return "redirect:/expense";
     }
 
+    @DeleteMapping("/expense/delete/{id}")
+    public String del(@PathVariable("id") Long id) {
+        service.deletePoke(id);
+        return "redirect:/expense";
+    }
+
+    @GetMapping("/expense/{id}")
+    public String view(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("poke", service.findBook(id));
+        return "view";
+    }
 }

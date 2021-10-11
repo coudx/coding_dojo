@@ -33,6 +33,10 @@ public class PokebookService {
     public Pokebook updateBook(Pokebook poke) {
         return bookRepository.save(poke);
     }
+
+    public void deletePoke(Long id) {
+        bookRepository.deleteById(id);
+    }
 }
 
 
